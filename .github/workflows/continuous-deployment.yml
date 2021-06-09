@@ -18,3 +18,14 @@ jobs:
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
             heroku_app_name: "k16-hw3-cicd" #Must be unique in Heroku
             heroku_email: "tiger.fsdev@gmail.com"
+        - uses: ravsamhq/notify-slack-action@v1
+          if: always()
+          with:
+              status: ${{ job.status }}
+              token: ${{ secrets.GITHUB_TOKEN }}
+              notification_title: '{workflow} has {status_message}'
+              message_format: '{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>'
+              footer: 'Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>'
+              notify_when: 'success'
+          env:
+              SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
