@@ -83,7 +83,7 @@ class CartPage extends React.Component {
         return (
             <React.Fragment>
             <Helmet>
-                <title>Shoper Cart</title>
+                <title>Shoper Cart New</title>
             </Helmet>
             <div className="shoper-cart-page">
                 <div className="shoper-cart-page__header">
