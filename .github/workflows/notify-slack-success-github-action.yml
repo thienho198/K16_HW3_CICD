@@ -1,11 +1,20 @@
 name: Slack Notify Success GitHub Action
-if: always()
-uses: ravsamhq/notify-slack-action@v1
-with:
-      status: ${{ job.status }}
-      notification_title: '{workflow} has {status_message}'
-      message_format: '{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>'
-      footer: 'Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>'
-      notify_when: 'success'
-env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+on:
+  push:
+    branches:
+      - master
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+     steps:
+        - uses: ravsamhq/notify-slack-action@v1
+          if: always()
+          with:
+              status: ${{ job.status }}
+              token: ${{ secrets.GITHUB_TOKEN }}
+              notification_title: '{workflow} has {status_message}'
+              message_format: '{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>'
+              footer: 'Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>'
+              notify_when: 'success'
+          env:
+              SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
