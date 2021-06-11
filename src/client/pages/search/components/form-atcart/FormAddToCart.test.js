@@ -23,7 +23,7 @@ const mockStore = configureMockStore(middlewares);
 Enzyme.configure({ adapter: new Adapter() });
 
 
-describe('Test Case SearchPage Have Label SEARCH FILTER ', () => {
+describe('Test Case Form Have Label Button Add To Cart ', () => {
     it('should show the text', () => {
         const store = mockStore({}); 
         const formWrapper = shallow(<Provider store={store}><FormAddToCart /></Provider>);
@@ -31,4 +31,14 @@ describe('Test Case SearchPage Have Label SEARCH FILTER ', () => {
            expect(element.text()).toBe('Add To Cart');
         // console.log(element); 
    });
+});
+
+describe('Test Case Form Have Label Price ', () => {
+   it('should show the text', () => {
+       const store = mockStore({}); 
+       const formWrapper = shallow(<Provider store={store}><FormAddToCart /></Provider>);
+       const element = formWrapper.render().find('.shoper-form-add-to-cart__content__price span')
+          expect(element.text()).toBe('Price:');
+       // console.log(element); 
+  });
 });
