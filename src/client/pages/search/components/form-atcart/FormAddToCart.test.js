@@ -42,3 +42,13 @@ describe('Test Case Form Have Label Price ', () => {
        // console.log(element); 
   });
 });
+
+describe('Test Case Form Have Quantity Default Equal To 1 ', () => {
+   it('should show the text', () => {
+       const store = mockStore({}); 
+       const formWrapper = shallow(<Provider store={store}><FormAddToCart /></Provider>);
+       const element = formWrapper.render().find('.shoper-form-add-to-cart__content__quantity__counter__number')
+          expect(element.text()).toBe('1')
+       // console.log(element); 
+  });
+});

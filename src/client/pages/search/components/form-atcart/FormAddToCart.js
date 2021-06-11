@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 const FormAddToCart = props=>{
     const {name="bjhbh", price="yuyb", stars, sold, url="jnkjnjk", tags} = props.product || {};
-    const [quantity,setQuantity] =  useState(1);
+    const [quantity,setQuantity] =  useState(2);
     
     const onSubtractHandler = ()=>{
         if(quantity>1){
@@ -51,7 +51,7 @@ const FormAddToCart = props=>{
                     </div>
                 </div>
                 <div id="#butonaddtocart" onClick={onAddHandler} className="shoper-form-add-to-cart__content__buttonadd">
-                    Add To Cart1
+                    Add To Cart
                 </div>
             </div>
         </div>
