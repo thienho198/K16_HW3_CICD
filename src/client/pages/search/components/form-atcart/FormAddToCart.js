@@ -51,7 +51,7 @@ const FormAddToCart = props=>{
                     </div>
                 </div>
                 <div id="#butonaddtocart" onClick={onAddHandler} className="shoper-form-add-to-cart__content__buttonadd">
-                    Add To Cart
+                    Add To Cart1
                 </div>
             </div>
         </div>
