@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 const FormAddToCart = props=>{
     const {name="bjhbh", price="yuyb", stars, sold, url="jnkjnjk", tags} = props.product || {};
-    const [quantity,setQuantity] =  useState(1);
+    const [quantity,setQuantity] =  useState(2);
     
     const onSubtractHandler = ()=>{
         if(quantity>1){
